@@ -1,7 +1,9 @@
+// src/models/category.model.ts
+
 export interface Category {
-  id: number;
-  parent_id: number | null;
+  id: number | null;
+  parent_id?: number | null;
   name: string;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
 }

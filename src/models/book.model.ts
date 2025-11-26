@@ -3,9 +3,10 @@ export interface Book {
   title: string; // 제목
   author: string; // 저자
   image_url: string; // 이미지 URL
-  price: string; // 가격 (문자열로 표현됨)
+  price: number; // 가격 (문자열로 표현됨)
   summary: string; // 요약
   published_date: string; // 출판일 (ISO8601 형식)
+  likes: number; // 좋아요 수
 }
 
 export interface BookDetail extends Book {

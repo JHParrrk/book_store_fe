@@ -10,83 +10,54 @@ import {
   FaUserCircle,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { IconBaseProps } from "react-icons";
 import Dropdown from "./dropdown";
 import ThemeSwitcher from "../header/themeSwitcher";
 import { useAuthStore } from "../../stores/authStore";
 
-const SignInIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon = FaSignInAlt as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-const RegUserIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon = FaRegUser as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-const AngleRightIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon = FaAngleRight as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-const BarsIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon = FaBars as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-const ShoppingBasketIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon =
-    FaShoppingBasket as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-const UserCircleIcon: React.FC<IconBaseProps> = (props) => {
-  const Icon = FaUserCircle as unknown as React.ComponentType<IconBaseProps>;
-  return <Icon {...props} />;
-};
-
-const CATEGORY = [
-  {
-    id: null,
-    name: "전체",
-  },
-  {
-    id: 0,
-    name: "동화",
-  },
-  {
-    id: 1,
-    name: "소설",
-  },
-  {
-    id: 2,
-    name: "문학",
-  },
+const Event = [
+  { id: null, name: "베스트" },
+  { id: 0, name: "신상품" },
+  { id: 1, name: "이벤트" },
+  { id: 2, name: "이런용도" },
 ];
 
-const Header = () => {
-  // const { category } = useCategory();
-  const category = CATEGORY;
+interface HeaderProps {
+  onMenuClick: () => void;
+}
+
+const Header = ({ onMenuClick }: HeaderProps) => {
+  const event = Event;
   const { isloggedIn, storeLogout } = useAuthStore();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
     <HeaderStyle $isOpen={isMobileOpen}>
+      {/* 🎯 [좌측] 메인 사이드바 버튼 */}
+      <button className="menu-button left-menu-btn" onClick={onMenuClick}>
+        <FaBars />
+      </button>
+
+      {/* 🎯 [중앙] 로고 */}
       <h1 className="logo">
         <Link to="/">
           <img src={logo} alt="book store" />
         </Link>
       </h1>
-      <nav className="category">
+
+      {/* 🎯 [우측 1] 카테고리/이벤트 메뉴 (모바일에서는 햄버거 버튼) */}
+      <nav className="event">
         <button
-          className="menu-button"
+          className="menu-button mobile-toggle-btn"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
         >
-          {isMobileOpen ? <AngleRightIcon /> : <BarsIcon />}
+          {isMobileOpen ? <FaAngleRight /> : <FaBars />}
         </button>
         <ul>
-          {category.map((item) => (
+          {event.map((item) => (
             <li key={item.id}>
               <Link
-                to={
-                  item.id === null ? `/books` : `/books?category_id=${item.id}`
-                }
+                to={item.id === null ? `/event` : `/event?event_id=${item.id}`}
+                onClick={() => setIsMobileOpen(false)}
               >
                 {item.name}
               </Link>
@@ -94,13 +65,15 @@ const Header = () => {
           ))}
         </ul>
       </nav>
+
+      {/* 🎯 [우측 2] 인증/유저 메뉴 */}
       <nav className="auth">
-        <Dropdown toggleButton={<UserCircleIcon />}>
+        <Dropdown toggleButton={<FaUserCircle className="icon-btn" />}>
           {isloggedIn ? (
             <ul>
               <li>
                 <Link to="/basket">
-                  <ShoppingBasketIcon />
+                  <FaShoppingBasket />
                   장바구니
                 </Link>
               </li>
@@ -115,13 +88,13 @@ const Header = () => {
             <ul>
               <li>
                 <Link to="/login">
-                  <SignInIcon />
+                  <FaSignInAlt />
                   로그인
                 </Link>
               </li>
               <li>
                 <Link to="/signup">
-                  <RegUserIcon />
+                  <FaRegUser />
                   회원가입
                 </Link>
               </li>
@@ -147,7 +120,40 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.color.background};
+  border-bottom: 1px solid ${({ theme }) => theme.color.border};
+
+  /* 공통 아이콘 버튼 스타일 (배경 X, 테두리 X) */
+  .menu-button,
+  .icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px; /* 최소한의 클릭 영역 */
+    color: ${({ theme }) => theme.color.text};
+    transition: color 0.2s ease;
+
+    svg {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.color.primary};
+    }
+  }
+
+  /* 🎯 [수정됨] 좌측 메뉴 버튼이 데스크톱에서도 보이도록 display: flex를 유지하고 마진을 줍니다. */
+  .left-menu-btn {
+    display: flex;
+    margin-right: 24px;
+  }
+
+  /* 데스크톱에서 우측 모바일 토글 버튼은 숨김 */
+  .mobile-toggle-btn {
+    display: none;
+  }
 
   .logo {
     img {
@@ -155,13 +161,12 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
     }
   }
 
-  .category {
-    .menu-button {
-      display: none;
-    }
+  /* 데스크톱 메뉴 스타일 */
+  .event {
     ul {
       display: flex;
       gap: 32px;
+      margin-right: 32px; /* Auth와 간격 추가 */
       li {
         a {
           font-size: 1.5rem;
@@ -177,6 +182,7 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
     }
   }
 
+  /* 데스크톱 인증 메뉴 */
   .auth {
     ul {
       display: flex;
@@ -197,57 +203,97 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
           background: none;
           border: 0;
           cursor: pointer;
+          color: ${({ theme }) => theme.color.text};
           svg {
             margin-right: 6px;
+          }
+          &:hover {
+            color: ${({ theme }) => theme.color.primary};
           }
         }
       }
     }
   }
 
+  /* 📱 모바일 미디어 쿼리 */
   @media screen and (${({ theme }) => theme.mediaQuery.mobile}) {
     height: 52px;
+    padding: 0 12px;
 
+    justify-content: flex-start;
+    gap: 8px;
+
+    /* 1. 좌측 메뉴 버튼 */
+    .left-menu-btn {
+      order: 1;
+      margin-right: 0;
+      /* 스타일은 공통 스타일을 따름 */
+    }
+
+    /* 2. 로고 (남은 공간 차지) */
     .logo {
-      padding: 0 0 0 12px;
+      order: 2;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
 
       img {
-        width: 140px;
+        width: 120px;
       }
     }
 
+    /* 3. 인증/유저 아이콘 */
     .auth {
-      position: absolute;
-      top: 12px;
-      right: 12px;
+      order: 3;
+      position: static;
+
+      .dropdown-toggle,
+      .icon-btn {
+        padding: 4px;
+      }
     }
 
-    .category {
-      .menu-button {
-        display: flex;
-        position: absolute;
-        top: 14px;
-        right: ${({ $isOpen }) => ($isOpen ? "62%" : "52px")};
-        background: #fff;
-        border: 0;
-        font-size: 1.5rem;
+    /* 4. 이벤트/카테고리 메뉴 (토글 버튼과 드롭다운) */
+    .event {
+      order: 4;
+
+      /* 모바일에서는 데스크톱 메뉴(ul)를 숨김 */
+      ul {
+        display: none;
+        margin-right: 0;
       }
 
+      /* 모바일 토글 버튼만 보임 */
+      .mobile-toggle-btn {
+        display: flex;
+        position: static;
+        z-index: 1001;
+
+        color: ${({ $isOpen, theme }) =>
+          $isOpen ? theme.color.primary : theme.color.text};
+      }
+
+      /* 모바일 드롭다운 메뉴 스타일 */
       ul {
         position: fixed;
         top: 0;
         right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
-        width: 60%;
+        width: 70%;
         height: 100vh;
-        background: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        background: ${({ theme }) => theme.color.background};
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 
         margin: 0;
-        padding: 24px;
+        padding: 60px 24px;
         z-index: 1000;
+        transition: right 0.3s ease-in-out;
 
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
+
+        li a {
+          font-size: 1.2rem;
+        }
       }
     }
   }

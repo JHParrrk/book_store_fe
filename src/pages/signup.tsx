@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Title from "../components/commons/title";
 import InputText from "../components/commons/inputText";
-import Button from "../components/commons/button";
+import Button from "../components/commons/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../hooks/useAuth";
@@ -10,6 +10,9 @@ import { useAuth } from "../hooks/useAuth";
 export interface AuthProps {
   email: string;
   password: string;
+  name: string;
+  address: string;
+  phone_number: string;
 }
 
 const Signup = () => {
@@ -34,8 +37,6 @@ const Signup = () => {
               placeholder="이메일"
               inputType="email"
               {...register("email", { required: true })}
-              // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
             />
             {errors.email && (
               <p className="error-text">이메일을 입력해주세요.</p>
@@ -46,11 +47,37 @@ const Signup = () => {
               placeholder="비밀번호"
               inputType="password"
               {...register("password", { required: true })}
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
             />
             {errors.password && (
               <p className="error-text">비밀번호를 입력해주세요.</p>
+            )}
+          </fieldset>
+          <fieldset>
+            <InputText
+              placeholder="이름"
+              inputType="text"
+              {...register("name", { required: true })}
+            />
+            {errors.name && <p className="error-text">이름을 입력해주세요.</p>}
+          </fieldset>
+          <fieldset>
+            <InputText
+              placeholder="주소"
+              inputType="text"
+              {...register("address", { required: true })}
+            />
+            {errors.address && (
+              <p className="error-text">주소를 입력해주세요.</p>
+            )}
+          </fieldset>
+          <fieldset>
+            <InputText
+              placeholder="전화번호"
+              inputType="text"
+              {...register("phone_number", { required: true })}
+            />
+            {errors.phone_number && (
+              <p className="error-text">전화번호를 입력해주세요.</p>
             )}
           </fieldset>
           <fieldset>

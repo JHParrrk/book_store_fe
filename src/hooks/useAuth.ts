@@ -25,7 +25,7 @@ export const useAuth = () => {
   const userLogin = (data: AuthProps) => {
     login(data).then(
       (res) => {
-        storeLogin(res.token);
+        storeLogin(res.accessToken);
         showAlert("로그인이 완료되었습니다.");
         navigate("/");
       },

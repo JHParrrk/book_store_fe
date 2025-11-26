@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Button from "./button";
+import Button from "./Button";
 import { BookStoreThemeProvider } from "../../contexts/themeContext";
 
 describe("Button 컴포넌트 테스트", () => {

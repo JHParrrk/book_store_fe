@@ -17,7 +17,7 @@ export const changePassword = async (userData: AuthProps) => {
 };
 
 interface LoginResponse {
-  token: string;
+  accessToken: string;
 }
 
 export const login = async (userData: AuthProps) => {

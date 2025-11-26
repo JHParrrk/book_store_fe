@@ -3,8 +3,8 @@ import Home from "./pages/home";
 import Layout from "./components/layout/layout";
 // import Basket from "./pages/Basket";
 // import BookDetail from "./pages/BookDetail";
-// import Books from "./pages/Books";
-// import Login from "./pages/Login";
+import Books from "./pages/books";
+import Login from "./pages/login";
 // import Order from "./pages/Order";
 // import OrderList from "./pages/OrderList";
 // import ResetPassword from "./pages/ResetPassword";
@@ -16,10 +16,10 @@ const routeList = [
     path: "/",
     element: <Home />,
   },
-  // {
-  //   path: "/books",
-  //   element: <Books />,
-  // },
+  {
+    path: "/books/search",
+    element: <Books />,
+  },
   {
     path: "/signup",
     element: <Signup />,
@@ -28,10 +28,10 @@ const routeList = [
   //   path: "/reset",
   //   element: <ResetPassword />,
   // },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
+  {
+    path: "/login",
+    element: <Login />,
+  },
   // {
   //   path: "/book/:bookId",
   //   element: <BookDetail />,

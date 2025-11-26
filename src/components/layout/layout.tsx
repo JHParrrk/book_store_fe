@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../commons/header";
 import Footer from "../commons/footer";
+import Sidebar from "../commons/sidebar";
 import styled from "styled-components";
 
 interface LayoutProps {
@@ -8,9 +9,16 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
     <>
-      <Header />
+      <Header onMenuClick={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <LayoutStyle>{children}</LayoutStyle>
       <Footer />
     </>
@@ -18,6 +26,7 @@ const Layout = ({ children }: LayoutProps) => {
 };
 
 const LayoutStyle = styled.main`
+  flex: 1;
   width: 100%;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.layout.width.large};

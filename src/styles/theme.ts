@@ -5,7 +5,8 @@ export type ColorKey =
   | "secondary"
   | "third"
   | "border"
-  | "text";
+  | "text"
+  | "background_light";
 export type HeadingSize = "large" | "medium" | "small";
 export type ButtonSize = "large" | "medium" | "small";
 export type ButtonScheme = "primary" | "normal" | "like";
@@ -57,6 +58,7 @@ export const light: Theme = {
     third: "green",
     border: "gray",
     text: "black",
+    background_light: "white",
   },
   heading: {
     large: {
@@ -123,7 +125,8 @@ export const dark: Theme = {
     secondary: "darkblue",
     third: "drakgreen",
     border: "gray",
-    text: "black",
+    text: "white", // 텍스트 색상을 흰색으로 변경해야 어두운 배경에서 보입니다.
+    background_light: "#333", // 👈 다크 모드에서 배경보다 살짝 밝은 색상 (호버용)
   },
 };
 

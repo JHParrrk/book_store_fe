@@ -1,39 +1,16 @@
-import Layout from "./components/layout/layout";
-import Home from "./pages/home";
-import Signup from "./pages/signup";
 import { BookStoreThemeProvider } from "./contexts/themeContext";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Layout>
-        <Outlet />
-      </Layout>
-    ),
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "/books",
-        element: <div>도서목록</div>,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-      },
-    ],
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./apis/queryClient.api";
 
 function App() {
   return (
-    <BookStoreThemeProvider>
-      <RouterProvider router={router} />
-    </BookStoreThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <BookStoreThemeProvider>
+        <RouterProvider router={router} />
+      </BookStoreThemeProvider>
+    </QueryClientProvider>
   );
 }
 
