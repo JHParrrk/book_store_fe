@@ -24,15 +24,23 @@ const BooksViewSwitcher = () => {
   const handleSwitch = (value: ViewMode) => {
     const newSearchParams = new URLSearchParams(searchParams);
 
-    newSearchParams.set(QUERYSTRING.VIEW, value);
+    // 기존 view 파라미터 삭제
+    newSearchParams.delete(QUERYSTRING.VIEW);
+
+    // 새로운 view 파라미터를 마지막에 추가
+    newSearchParams.append(QUERYSTRING.VIEW, value);
+
     setSearchParams(newSearchParams);
   };
 
   useEffect(() => {
     if (!searchParams.get(QUERYSTRING.VIEW)) {
-      handleSwitch("grid");
+      const newSearchParams = new URLSearchParams(searchParams);
+      newSearchParams.append(QUERYSTRING.VIEW, "grid");
+      setSearchParams(newSearchParams);
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   return (
     <BooksViewSwitcherStyle>

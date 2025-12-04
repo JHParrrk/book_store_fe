@@ -41,9 +41,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
       <div className="category-item" style={{ paddingLeft: paddingLeft }}>
         <Link
           to={
-            itemId === null
-              ? `/books`
-              : `/books/search?category_id=${itemId}&keyword=&page=${PAGE_START}&limit=${LIMIT}`
+            // itemId가 null이 아닌 경우만 처리: 분리된 '전체' 링크에 대한 조건 제거
+            `/books/search?category_id=${itemId}&keyword=&page=${PAGE_START}&limit=${LIMIT}`
           }
           onClick={onClose}
         >

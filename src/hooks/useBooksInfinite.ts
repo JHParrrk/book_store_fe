@@ -8,7 +8,7 @@ export const useBooksInfinite = () => {
   const location = useLocation();
   const getBooks = ({ pageParam }: { pageParam: number }) => {
     const params = new URLSearchParams(location.search);
-    const categoryId = params.get(QUERYSTRING.CATEGORY_ID)
+    const category_Id = params.get(QUERYSTRING.CATEGORY_ID)
       ? Number(params.get(QUERYSTRING.CATEGORY_ID))
       : undefined;
     const isNew = params.get(QUERYSTRING.ISNEW) ? true : undefined;
@@ -16,7 +16,7 @@ export const useBooksInfinite = () => {
     const currentPage = pageParam;
 
     return fetchBooks({
-      categoryId,
+      category_Id,
       isNew,
       limit,
       currentPage,

@@ -15,7 +15,7 @@ interface Props {
 const BookItem = ({ book, view }: Props) => {
   return (
     <BookItemStyle view={view}>
-      <Link to={`/book/${book.id}`}>
+      <Link to={`/books/${book.id}`}>
         <div className="img">
           <img src={book.image_url} alt={book.title} />
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useCategory } from "../../hooks/useCategory";
 import CategoryItem from "./categoryItem";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -11,13 +11,11 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const { category } = useCategory(); // category: 전체 목록
-  // 💡 expandedId 대신 expandedIds 배열 사용
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
+  const location = useLocation(); // Get the current route
 
-  // Level 1 카테고리 (parent_id가 null인 항목)
   const mainCategories = category.filter((item) => item.parent_id === null);
 
-  // 💡 handleToggle 함수 수정: 배열에 ID 추가/제거
   const handleToggle = (id: number | null) => {
     if (id === null) return; // ID가 null이면 무시
 
@@ -39,13 +37,17 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       <SidebarStyle isOpen={isOpen}>
         <h3>카테고리</h3>
         <ul>
+          <AllLinkItemStyle>
+            <Link to="/books/search" onClick={onClose}>
+              전체
+            </Link>
+          </AllLinkItemStyle>
           {/* Level 1 (메인 카테고리) 렌더링 */}
           {mainCategories.map((item) => (
             <CategoryItem
               key={item.id ?? "all"}
               item={item}
               allCategories={category} // 전체 데이터 전달
-              // 💡 expandedId 대신 expandedIds 배열 전달
               expandedIds={expandedIds}
               onToggle={handleToggle}
               onClose={onClose}
@@ -57,6 +59,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     </>
   );
 };
+
 const SidebarStyle = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
@@ -82,8 +85,20 @@ const SidebarStyle = styled.div<{ isOpen: boolean }>`
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+`;
 
-    /* CategoryItem에서 ul/li 스타일을 대부분 처리하므로 여기는 간결하게 유지합니다. */
+const AllLinkItemStyle = styled.li`
+  margin-bottom: 8px;
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.text};
+    font-size: 1rem;
+    font-weight: 500;
+
+    display: block;
+    padding: 5px 0;
   }
 `;
 

@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./components/layout/layout";
 // import Basket from "./pages/Basket";
-// import BookDetail from "./pages/BookDetail";
+import BookDetail from "./pages/BookDetail";
 import Books from "./pages/books";
 import Login from "./pages/login";
 // import Order from "./pages/Order";
@@ -32,10 +32,10 @@ const routeList = [
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/book/:bookId",
-  //   element: <BookDetail />,
-  // },
+  {
+    path: "/books/:bookId",
+    element: <BookDetail />,
+  },
   // {
   //   path: "/basket",
   //   element: <Basket />,

@@ -10,7 +10,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
     timeout: DEFAULT_TIMEOUT,
     headers: {
       "content-type": "application/json",
-      Authorization: getToken() ? getToken() : "",
+      Authorization: getToken() ? `Bearer ${getToken()}` : "",
     },
     withCredentials: true,
     ...config,
@@ -36,25 +36,25 @@ export const httpClient = createClient();
 
 type RequestMethod = "get" | "post" | "put" | "delete";
 
-export const requestHandler = async <T>(
+export const requestHandler = async <R = any, P = any>(
   method: RequestMethod,
   url: string,
-  payload?: T
+  payload?: P
 ) => {
   let response;
 
   switch (method) {
     case "get":
-      response = await httpClient.get(url);
+      response = await httpClient.get<R>(url);
       break;
     case "post":
-      response = await httpClient.post(url, payload);
+      response = await httpClient.post<R>(url, payload);
       break;
     case "put":
-      response = await httpClient.put(url, payload);
+      response = await httpClient.put<R>(url, payload);
       break;
     case "delete":
-      response = await httpClient.delete(url);
+      response = await httpClient.delete<R>(url);
       break;
   }
 

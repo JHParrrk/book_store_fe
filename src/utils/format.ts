@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
 export const formatNumber = (num: number): string => {
-  return num.toLocaleString();
+  return Math.floor(num).toLocaleString();
 };
 
 export const formatDate = (date: string, format?: string) => {

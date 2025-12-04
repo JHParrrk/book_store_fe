@@ -16,7 +16,18 @@ const Pagination = ({ pagination }: Props) => {
   const handleClickPage = (page: number) => {
     const newSearchParams = new URLSearchParams(searchParams);
 
+    // 기존 view 파라미터를 삭제 후 다시 추가하여 항상 마지막에 위치하도록 설정
+    const view = newSearchParams.get(QUERYSTRING.VIEW);
+    if (view) {
+      newSearchParams.delete(QUERYSTRING.VIEW);
+    }
+
     newSearchParams.set(QUERYSTRING.PAGE, page.toString());
+
+    if (view) {
+      newSearchParams.append(QUERYSTRING.VIEW, view);
+    }
+
     setSearchParams(newSearchParams);
   };
 

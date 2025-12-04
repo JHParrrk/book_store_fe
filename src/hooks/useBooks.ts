@@ -20,7 +20,7 @@ export const useBooks = () => {
     queryKey: ["books", location.search],
     queryFn: async () => {
       const response = await fetchBooks({
-        categoryId: params.get(QUERYSTRING.CATEGORY_ID)
+        category_Id: params.get(QUERYSTRING.CATEGORY_ID)
           ? Number(params.get(QUERYSTRING.CATEGORY_ID))
           : undefined,
         isNew: params.get(QUERYSTRING.ISNEW) ? true : undefined,
@@ -39,6 +39,8 @@ export const useBooks = () => {
         },
       };
     },
+    staleTime: 1000 * 60 * 5, // 5분
+    refetchOnWindowFocus: false,
   });
 
   return {
