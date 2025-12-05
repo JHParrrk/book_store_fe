@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Title from "../components/commons/title";
+import Title from "../components/commons/Title";
 import { useParams } from "react-router-dom";
 import { useBook } from "../hooks/useBook";
 import { BookDetail as IBookDetail } from "../models/book.model";
@@ -30,10 +30,6 @@ const bookInfoList = [
     key: "form",
   },
   {
-    label: "페이지",
-    key: "page_num",
-  },
-  {
     label: "ISBN",
     key: "isbn",
   },
@@ -50,6 +46,18 @@ const bookInfoList = [
     filter: (book: IBookDetail) => {
       return `${formatNumber(book.price)}원`;
     },
+  },
+  {
+    label: "이쁘게 보기",
+    key: "asdf",
+  },
+  {
+    label: "용 나중에 ",
+    key: "qwer",
+  },
+  {
+    label: "스타일로",
+    key: "zxcv",
   },
 ];
 

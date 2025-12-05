@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "./title";
+import Title from "./Title";
 
 interface Props {
   icon?: React.ReactNode;

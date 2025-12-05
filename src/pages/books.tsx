@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Title from "../components/commons/title";
+import Title from "../components/commons/Title";
 import BooksFilter from "../components/books/BooksFilter";
 import BooksList from "../components/books/BooksList";
 import BooksEmpty from "../components/books/BooksEmpty";

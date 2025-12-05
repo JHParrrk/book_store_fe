@@ -16,6 +16,11 @@ export const changePassword = async (userData: AuthProps) => {
   return response.data;
 };
 
+export const getMyUserInfo = async () => {
+  const response = await httpClient.get("/users/me");
+  return response.data;
+};
+
 interface LoginResponse {
   accessToken: string;
 }

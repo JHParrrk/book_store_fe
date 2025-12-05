@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Title from "./title";
+import Title from "./Title";
 import { BookStoreThemeProvider } from "../../contexts/themeContext";
 
 describe("Title 컴포넌트 테스트", () => {

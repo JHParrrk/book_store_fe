@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../components/commons/title";
+import Title from "../components/commons/Title";
 import InputText from "../components/commons/inputText";
 import Button from "../components/commons/Button";
 import { Link } from "react-router-dom";

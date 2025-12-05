@@ -1,4 +1,5 @@
 import { BookReviewItem, BookReviewItemWrite } from "../models/book.model";
+import { Pagination } from "../models/pagination.model";
 import { requestHandler } from "./https";
 
 export const fetchBookReview = async (bookId: string) => {
@@ -24,6 +25,15 @@ export const addBookReview = async (
   );
 };
 
+interface FetchReviewAllResponse {
+  reviews: BookReviewItem[];
+  pagination: Pagination;
+}
+
 export const fetchReviewAll = async () => {
-  return await requestHandler<BookReviewItem[]>("get", "/reviews");
+  const response = await requestHandler<FetchReviewAllResponse>(
+    "get",
+    "/reviews"
+  );
+  return response.reviews;
 };

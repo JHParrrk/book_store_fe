@@ -54,7 +54,7 @@ export const toggleLikeBook = async (bookId: number) => {
 };
 
 export const fetchBestBooks = async () => {
-  const response = await httpClient.get<Book[]>(`/books/best`);
+  const response = await httpClient.get<{ books: Book[] }>(`/books/best`);
 
-  return response.data;
+  return response.data.books;
 };

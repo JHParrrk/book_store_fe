@@ -47,8 +47,7 @@ export const useBook = (bookId: string | undefined) => {
     if (!book) return;
 
     addCart({
-      bookId: book.id,
-      quantity,
+      items: [{ book_id: book.id, quantity: quantity }],
     }).then(() => {
       // showAlert("장바구니에 추가되었습니다.");
       setbasketAdded(true);
