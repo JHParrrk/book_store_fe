@@ -1,11 +1,11 @@
 import React from "react";
-import Title from "../components/commons/Title";
-import InputText from "../components/commons/inputText";
-import Button from "../components/commons/Button";
+import Title from "@/components/commons/Title";
+import InputText from "@/components/commons/inputText";
+import Button from "@/components/commons/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { AuthProps, SignupStyle } from "./signup";
-import { useAuth } from "../hooks/useAuth";
+import { AuthProps, SignupStyle } from "@/pages/signup";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 const Login = () => {
   const { userLogin } = useAuth();

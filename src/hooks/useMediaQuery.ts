@@ -1,4 +1,4 @@
-import { getTheme } from "../styles/theme";
+import { getTheme } from '@/styles/theme.css';
 import { useEffect, useState } from "react";
 
 export const useMediaQuery = () => {

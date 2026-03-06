@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "./Title";
+import React from 'react';
+import Title from '@/components/commons/Title';
+import * as styles from '@/components/commons/empty.css';
 
 interface Props {
   icon?: React.ReactNode;
@@ -10,30 +10,14 @@ interface Props {
 
 const Empty = ({ icon, title, description }: Props) => {
   return (
-    <EmptyStyle>
-      {icon && <div className="icon">{icon}</div>}
+    <div className={styles.emptyContainer}>
+      {icon && <div className={styles.emptyIcon}>{icon}</div>}
       <Title size="large" color="secondary">
         {title}
       </Title>
       {description && <p>{description}</p>}
-    </EmptyStyle>
+    </div>
   );
 };
-
-const EmptyStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  padding: 120px 0;
-
-  .icon {
-    svg {
-      font-size: 4rem;
-      fill: #ccc;
-    }
-  }
-`;
 
 export default Empty;

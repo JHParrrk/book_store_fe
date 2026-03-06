@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useCategory } from "../../hooks/useCategory";
-import CategoryItem from "./categoryItem";
+import { useCategory } from "@/features/books/hooks/useCategory";
+import CategoryItem from '@/components/commons/categoryItem';
 import { Link, useLocation } from "react-router-dom";
 
 interface SidebarProps {

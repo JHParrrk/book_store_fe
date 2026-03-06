@@ -1,8 +1,8 @@
-import useToastStore, { ToastItem } from "../../../stores/toastStore";
+import useToastStore, { ToastItem } from '@/stores/toastStore';
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaPlus, FaBan, FaInfoCircle } from "react-icons/fa";
-import { useTimeout } from "../../../hooks/useTimeout";
+import { useTimeout } from "@/hooks/useTimeout";
 
 export const TOAST_REMOVE_DELAY = 3000;
 

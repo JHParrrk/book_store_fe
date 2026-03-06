@@ -1,7 +1,7 @@
-import { Banner as IBanner } from "../../../models/banner.model";
+import { Banner as IBanner } from "@/features/main/types/banner.model";
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
-import BannerItem from "./BannerItem";
+import BannerItem from '@/components/commons/banner/BannerItem';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 interface Props {

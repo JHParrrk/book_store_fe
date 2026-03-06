@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { ColorKey, HeadingSize } from "../../styles/theme";
+import React from 'react';
+import { ColorKey, HeadingSize } from '@/styles/theme.css';
+import * as styles from '@/components/commons/title.css';
 
 interface Props {
   children: React.ReactNode;
@@ -9,17 +9,14 @@ interface Props {
 }
 
 const Title = ({ children, size, color }: Props) => {
-  return (
-    <TitleStyle size={size} color={color}>
-      {children}
-    </TitleStyle>
-  );
-};
+  const classNames = [
+    styles.titleSize[size],
+    color ? styles.titleColor[color] : styles.titleColor.primary,
+  ]
+    .join(' ')
+    .trim();
 
-const TitleStyle = styled.h1<Omit<Props, "children">>`
-  font-size: ${({ theme, size }) => theme.heading[size].fontSize};
-  color: ${({ theme, color }) =>
-    color ? theme.color[color] : theme.color.primary};
-`;
+  return <h1 className={classNames}>{children}</h1>;
+};
 
 export default Title;

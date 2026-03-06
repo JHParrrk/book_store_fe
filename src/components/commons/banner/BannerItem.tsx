@@ -1,4 +1,4 @@
-import { Banner as IBanner } from "../../../models/banner.model";
+import { Banner as IBanner } from "@/features/main/types/banner.model";
 import React from "react";
 import styled from "styled-components";
 

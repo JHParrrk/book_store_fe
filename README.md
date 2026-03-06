@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# 📚 Book Store FE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a modern React application for a Book Store, refactored into an **Enterprise-level Feature-Driven Architecture (FDD)**. It follows industry best practices for scalability, type safety, and optimal rendering performance.
 
-## Available Scripts
+## 🚀 Tech Stack
 
-In the project directory, you can run:
+- **Core Framework**: React 18, Vite, TypeScript
+- **Styling**: [Vanilla Extract](https://vanilla-extract.style/) (Zero-runtime CSS) + `styled-components` (Legacy continuity)
+- **State Management**:
+  - **Server-State**: [@tanstack/react-query](https://tanstack.com/query/latest)
+  - **Client-State**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Forms & Validation**: React Hook Form + [Zod](https://zod.dev/)
+- **UI & Animations**: Radix UI (Primitives), Framer Motion
+- **Networking**: Axios (with custom interceptors)
 
-### `npm start`
+## 🏗️ Architecture: Feature-Driven Design
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The codebase is organized by business domains (`features`) rather than technical roles. This prevents deeply nested spaghetti code and makes each feature highly modular and independent.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```text
+src/
+├── apis/            # Global API instances and clients (Axios, QueryClient)
+├── assets/          # Static assets (images, icons)
+├── components/      # Global shared UI components (Button, Modal, Input, etc.)
+├── constants/       # Global constants
+├── contexts/        # Global React Contexts (e.g., ThemeContext)
+├── features/        # Core business domains (Feature-driven boundaries)
+│   ├── auth/        # Authentication & Registration
+│   ├── basket/      # Shopping Cart operations
+│   ├── book/        # Individual book details and reviews
+│   ├── books/       # Book listing, pagination, and filters
+│   ├── main/        # Landing page and curated lists
+│   └── order/       # Checkout and payment flows
+├── hooks/           # Global custom hooks
+├── mocks/           # Local mock data and structures
+├── models/          # Global types and interfaces
+├── pages/           # Route-level Page components
+├── stores/          # Global Zustand state stores
+├── styles/          # Design tokens and Vanilla Extract theme contracts
+└── utils/           # Pure utility and formatting functions
+```
 
-### `npm test`
+## 🛠️ Key Conventions & Highlights
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Unified Theme Strategy (Vanilla Extract)
+All modern styling is written using **Vanilla Extract** (`*.css.ts`), which provides zero-runtime CSS. To ensure absolute backwards compatibility during the migration phase, the global `ThemeContext` seamlessly provides both `Vanilla Extract` class names and legacy `styled-components` objects to the component tree. 
 
-### `npm run build`
+### 2. Safe & Controlled State 
+- Server state mutations and caching are completely delegated to **React Query**.
+- UI constraints, modals, and globally accessible toggles are managed tightly by **Zustand**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Absolute Path Imports
+All imports utilize aliased absolute paths (`@/`) to avoid messy and brittle `../../../` directory climbing. 
+_Example:_ `import { Button } from '@/components/commons/Button'`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💻 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- `npm` or `yarn`
 
-### `npm run eject`
+### Installation & Run
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# 1. Install project dependencies
+npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 2. Start the Vite development server
+npm run dev
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# 3. Build for production (Emits to /dist)
+npm run build
+```

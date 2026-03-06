@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "../components/commons/Title";
-import { useOrders } from "../hooks/useOrders";
-import { formatDate, formatNumber } from "../utils/format";
-import Button from "../components/commons/Button";
+import Title from "@/components/commons/Title";
+import { useOrders } from "@/features/order/hooks/useOrders";
+import { formatDate, formatNumber } from "@/utils/format";
+import Button from "@/components/commons/Button";
 
 const OrderList = () => {
   const { orders, selectedItemId, selectOrderItem } = useOrders();

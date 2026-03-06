@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../../assets/images/logo.png";
+import logo from '@/assets/images/logo.png';
 import {
   FaAngleRight,
   FaBars,
@@ -10,9 +10,9 @@ import {
   FaUserCircle,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Dropdown from "./dropdown";
-import ThemeSwitcher from "../header/themeSwitcher";
-import { useAuthStore } from "../../stores/authStore";
+import Dropdown from '@/components/commons/dropdown';
+import ThemeSwitcher from '@/components/header/themeSwitcher';
+import { useAuthStore } from '@/stores/authStore';
 
 const Event = [
   { id: null, name: "베스트" },

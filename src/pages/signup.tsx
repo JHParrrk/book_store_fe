@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "../components/commons/Title";
-import InputText from "../components/commons/inputText";
-import Button from "../components/commons/Button";
+import Title from "@/components/commons/Title";
+import InputText from "@/components/commons/inputText";
+import Button from "@/components/commons/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 export interface AuthProps {
   email: string;

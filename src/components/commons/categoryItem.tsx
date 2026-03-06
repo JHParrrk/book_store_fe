@@ -4,8 +4,8 @@ import React from "react";
 import styled from "styled-components"; // DefaultTheme 제거
 import { Link } from "react-router-dom";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-import { Category } from "../../models/category.model";
-import { LIMIT, PAGE_START } from "../../constants/pagination";
+import { Category } from "@/features/books/types/category.model";
+import { LIMIT, PAGE_START } from '@/constants/pagination';
 
 interface CategoryItemProps {
   item: Category;

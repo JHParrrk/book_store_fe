@@ -1,7 +1,7 @@
-import useToastStore from "../../../stores/toastStore";
+import useToastStore from '@/stores/toastStore';
 import React from "react";
 import styled from "styled-components";
-import Toast from "./Toast";
+import Toast from '@/components/commons/toast/Toast';
 
 const ToastContainer = () => {
   const toasts = useToastStore((state) => state.toasts);

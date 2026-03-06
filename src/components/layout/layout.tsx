@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../commons/header";
-import Footer from "../commons/footer";
-import Sidebar from "../commons/sidebar";
+import Header from "@/components/commons/header";
+import Footer from "@/components/commons/footer";
+import Sidebar from "@/components/commons/sidebar";
 import styled from "styled-components";
 
 interface LayoutProps {

@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { getToken, removeToken, setToken } from "../stores/authStore";
+import axios, { AxiosRequestConfig } from 'axios';
+import { getToken, removeToken, setToken } from '@/stores/authStore';
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = 'http://localhost:3000';
 const DEFAULT_TIMEOUT = 30000;
 
 // 여러 401 요청 동기화 변수
@@ -26,7 +26,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
     baseURL: BASE_URL,
     timeout: DEFAULT_TIMEOUT,
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
     withCredentials: true,
     ...config,
@@ -41,7 +41,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
       }
       return config;
     },
-    (error) => Promise.reject(error)
+    (error) => Promise.reject(error),
   );
 
   // 응답 인터셉터 - 401 에러 처리
@@ -76,7 +76,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
           const refreshResponse = await axios.post(
             `${BASE_URL}/users/refresh`,
             {},
-            { withCredentials: true }
+            { withCredentials: true },
           );
 
           const { accessToken } = refreshResponse.data;
@@ -91,7 +91,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
         } catch (refreshError) {
           processQueue(refreshError, null); // Fail 처리
           removeToken(); // 만료된 토큰 삭제
-          window.location.href = "/login"; // 로그인 페이지로 이동
+          window.location.href = '/login'; // 로그인 페이지로 이동
           return Promise.reject(refreshError);
         } finally {
           isRefreshing = false;
@@ -99,7 +99,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
       }
 
       return Promise.reject(error); // 다른 에러
-    }
+    },
   );
 
   return axiosInstance;
@@ -107,26 +107,26 @@ export const createClient = (config?: AxiosRequestConfig) => {
 
 export const httpClient = createClient();
 
-type RequestMethod = "get" | "post" | "put" | "delete";
+type RequestMethod = 'get' | 'post' | 'put' | 'delete';
 
 export const requestHandler = async <R = any, P = any>(
   method: RequestMethod,
   url: string,
-  payload?: P
+  payload?: P,
 ) => {
   let response;
 
   switch (method) {
-    case "get":
+    case 'get':
       response = await httpClient.get<R>(url);
       break;
-    case "post":
+    case 'post':
       response = await httpClient.post<R>(url, payload);
       break;
-    case "put":
+    case 'put':
       response = await httpClient.put<R>(url, payload);
       break;
-    case "delete":
+    case 'delete':
       response = await httpClient.delete<R>(url);
       break;
   }

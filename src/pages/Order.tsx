@@ -1,16 +1,16 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Title from "../components/commons/Title";
-import { BasketStyle } from "./Basket"; // BasketStyle이 import 됨
-import BasketSummary from "../components/basket/BasketSummary";
-import Button from "../components/commons/Button";
-import InputText from "../components/commons/inputText";
+import Title from "@/components/commons/Title";
+import { BasketStyle } from '@/pages/Basket'; // BasketStyle이 import 됨
+import BasketSummary from "@/features/basket/components/BasketSummary";
+import Button from "@/components/commons/Button";
+import InputText from "@/components/commons/inputText";
 import { useForm } from "react-hook-form";
-import { DeliveryInfo, OrderSheet } from "../models/order.model";
-import FindAddressButton from "../components/order/FindAddressButton";
-import { useAlert } from "../hooks/useAlert";
-import { order } from "../apis/order.api";
-import { useAuth } from "../hooks/useAuth";
+import { DeliveryInfo, OrderSheet } from "@/features/order/types/order.model";
+import FindAddressButton from "@/features/order/components/FindAddressButton";
+import { useAlert } from "@/hooks/useAlert";
+import { order } from "@/features/order/api/order.api";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 interface DeliveryForm extends DeliveryInfo {
   addressDetail: string;

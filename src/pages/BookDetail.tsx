@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Title from "../components/commons/Title";
+import Title from "@/components/commons/Title";
 import { useParams } from "react-router-dom";
-import { useBook } from "../hooks/useBook";
-import { BookDetail as IBookDetail } from "../models/book.model";
-import { formatDate, formatNumber } from "../utils/format";
+import { useBook } from "@/features/book/hooks/useBook";
+import { BookDetail as IBookDetail } from "@/features/books/types/book.model";
+import { formatDate, formatNumber } from "@/utils/format";
 import { Link } from "react-router-dom";
-import EllipsisBox from "../components/commons/EllipsisBox";
-import LikeButton from "../components/book/LikeButton";
-import AddToBasket from "../components/book/AddToBasket";
-import BookReview from "../components/book/BookReview";
-import { Tab, Tabs } from "../components/commons/Tabs";
-import Modal from "../components/commons/Modal";
+import EllipsisBox from "@/components/commons/EllipsisBox";
+import LikeButton from "@/features/book/components/LikeButton";
+import AddToBasket from "@/features/book/components/AddToBasket";
+import BookReview from "@/features/book/components/BookReview";
+import { Tab, Tabs } from "@/components/commons/Tabs";
+import Modal from "@/components/commons/Modal";
 
 const bookInfoList = [
   {

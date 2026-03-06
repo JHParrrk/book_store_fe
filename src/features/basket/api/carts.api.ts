@@ -1,0 +1,27 @@
+import { Cart } from '@/features/basket/types/cart.model';
+import { httpClient } from '@/apis/https';
+
+interface AddCartParams {
+  items: {
+    book_id: number;
+    quantity: number;
+  }[];
+}
+
+export const addCart = async (params: AddCartParams) => {
+  const response = await httpClient.post('/carts', params.items);
+
+  return response.data;
+};
+
+export const fetchCart = async () => {
+  const response = await httpClient.get<Cart[]>('/carts');
+
+  return response.data;
+};
+
+export const deleteCart = async (cartId: number) => {
+  const response = await httpClient.delete(`/carts/${cartId}`);
+
+  return response.data;
+};

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Title from "../components/commons/Title";
-import BooksFilter from "../components/books/BooksFilter";
-import BooksList from "../components/books/BooksList";
-import BooksEmpty from "../components/books/BooksEmpty";
-import Pagination from "../components/books/Pagination";
-import BooksViewSwitcher from "../components/books/BooksViewSwitcher";
-import { useBooks } from "../hooks/useBooks";
-import Loading from "../components/commons/Loading";
+import Title from "@/components/commons/Title";
+import BooksFilter from "@/features/books/components/BooksFilter";
+import BooksList from "@/features/books/components/BooksList";
+import BooksEmpty from "@/features/books/components/BooksEmpty";
+import Pagination from "@/features/books/components/Pagination";
+import BooksViewSwitcher from "@/features/books/components/BooksViewSwitcher";
+import { useBooks } from "@/features/books/hooks/useBooks";
+import Loading from "@/components/commons/Loading";
 
 const Books = () => {
   const { books, pagination, isEmpty, isBooksLoading } = useBooks();

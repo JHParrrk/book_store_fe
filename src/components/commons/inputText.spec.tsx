@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import InputText from "./inputText";
-import { BookStoreThemeProvider } from "../../contexts/themeContext";
+import InputText from '@/components/commons/inputText';
+import { BookStoreThemeProvider } from '@/contexts/themeContext';
 import React from "react";
 
 describe("InputText 컴포넌트 테스트", () => {
