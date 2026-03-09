@@ -74,7 +74,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
         try {
           // 리프레시 토큰 갱신
           const refreshResponse = await axios.post(
-            `${BASE_URL}/users/refresh`,
+            `${BASE_URL}/users/refresh-token`,
             {},
             { withCredentials: true },
           );
