@@ -1,12 +1,12 @@
-import { BookReviewItem as IBookReviewItem } from "@/features/books/types/book.model";
-import React from "react";
-import styled from "styled-components";
-import BookReviewItem from "@/features/book/components/BookReviewItem";
-import Slider from "react-slick";
+import { BookReviewItem as IBookReviewItem } from '@/features/books/types/book.model';
+import React from 'react';
+import styled from 'styled-components';
+import BookReviewItem from '@/features/book/components/BookReviewItem';
+import Slider from 'react-slick';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 interface Props {
   reviews: IBookReviewItem[];
@@ -47,7 +47,7 @@ const MainReviewStyle = styled.div`
 
   .slick-prev::before,
   .slick-next:before {
-    color: #000;
+    color: ${({ theme }) => theme.color.text};
   }
 
   @media screen and (${({ theme }) => theme.mediaQuery.mobile}) {

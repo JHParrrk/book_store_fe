@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 interface TabProps {
   title: string;
@@ -17,7 +17,7 @@ interface TabsProps {
 const Tabs = ({ children }: TabsProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const tabs = React.Children.toArray(
-    children
+    children,
   ) as React.ReactElement<TabProps>[];
 
   return (
@@ -26,7 +26,7 @@ const Tabs = ({ children }: TabsProps) => {
         {tabs.map((tab, i) => (
           <button
             onClick={() => setActiveIndex(i)}
-            className={activeIndex === i ? "active" : ""}
+            className={activeIndex === i ? 'active' : ''}
             key={i}
           >
             {tab.props.title}
@@ -46,7 +46,7 @@ const TabsStyle = styled.div`
 
     button {
       border: none;
-      background: #ddd;
+      background: ${({ theme }) => theme.color.background_light};
       cursor: pointer;
       font-size: 1.25rem;
       font-weight: bold;

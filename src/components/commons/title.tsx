@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColorKey, HeadingSize } from '@/styles/theme.css';
+import { ColorKey, HeadingSize } from '@/styles/theme';
 import * as styles from '@/components/commons/title.css';
 
 interface Props {

@@ -13,19 +13,15 @@ function App() {
   return (
     // 1. React Query Provider: 서버 상태(Server State) 관리 및 캐싱 제공
     <QueryClientProvider client={queryClient}>
-      // 2. Theme Provider: 다크/라이트 모드 지원 (Vanilla Extract &
-      Styled-Components 하위 호환)
+      {/* 2. Theme Provider: 다크/라이트 모드 지원 (Vanilla Extract & Styled-Components 하위 호환) */}
       <BookStoreThemeProvider>
-        // 3. Router Provider: React Router DOM 기반의 라우팅 시스템 주입
+        {/* 3. Router Provider: React Router DOM 기반의 라우팅 시스템 주입 */}
         <RouterProvider router={router} />
-        // 4. 전역 UI 컴포넌트: 페이지 어디서든 호출 가능한 토스트(알림)
-        컨테이너
+        {/* 4. 전역 UI 컴포넌트: 페이지 어디서든 호출 가능한 토스트(알림) 컨테이너 */}
         <ToastContainer />
       </BookStoreThemeProvider>
     </QueryClientProvider>
   );
 }
-
-export default App;
 
 export default App;

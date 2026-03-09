@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import Button from "@/components/commons/Button";
-import { FaList, FaTh } from "react-icons/fa";
-import { useSearchParams } from "react-router-dom";
-import { QUERYSTRING } from "@/constants/queryString";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import Button from '@/components/commons/Button';
+import { FaList, FaTh } from 'react-icons/fa';
+import { useSearchParams } from 'react-router-dom';
+import { QUERYSTRING } from '@/constants/queryString';
 
 const viewOptions = [
   {
-    value: "list",
+    value: 'list',
     icon: <FaList />,
   },
   {
-    value: "grid",
+    value: 'grid',
     icon: <FaTh />,
   },
 ];
 
-export type ViewMode = "grid" | "list";
+export type ViewMode = 'grid' | 'list';
 
 const BooksViewSwitcher = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,7 +36,7 @@ const BooksViewSwitcher = () => {
   useEffect(() => {
     if (!searchParams.get(QUERYSTRING.VIEW)) {
       const newSearchParams = new URLSearchParams(searchParams);
-      newSearchParams.append(QUERYSTRING.VIEW, "grid");
+      newSearchParams.append(QUERYSTRING.VIEW, 'grid');
       setSearchParams(newSearchParams);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -50,8 +50,8 @@ const BooksViewSwitcher = () => {
           size="medium"
           scheme={
             searchParams.get(QUERYSTRING.VIEW) === option.value
-              ? "primary"
-              : "normal"
+              ? 'primary'
+              : 'normal'
           }
           onClick={() => handleSwitch(option.value as ViewMode)}
         >
@@ -66,7 +66,7 @@ const BooksViewSwitcherStyle = styled.div`
   display: flex;
   gap: 8px;
   svg {
-    fill: white;
+    fill: currentColor;
   }
 `;
 export default BooksViewSwitcher;

@@ -17,8 +17,11 @@ export const buttonSize = styleVariants({
 
 // 3. 색상 스키마에 관련된 Variants (컴포넌트의 props.scheme에 매핑될 목록들)
 export const buttonScheme = styleVariants({
-  primary: { color: 'white', backgroundColor: 'midnightblue' },
-  normal: { color: 'black', backgroundColor: 'lightgray' },
+  primary: { color: 'white', backgroundColor: vars.color.primary },
+  normal: {
+    color: vars.color.text,
+    backgroundColor: vars.color.background_light,
+  },
   like: { color: 'white', backgroundColor: 'coral' },
 });
 

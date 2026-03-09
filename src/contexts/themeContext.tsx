@@ -1,5 +1,6 @@
 import React, { ReactNode, createContext, useEffect, useState } from 'react';
-import { lightTheme, darkTheme, getTheme } from '@/styles/theme.css';
+import { lightTheme, darkTheme, appWrapper } from '@/styles/theme.css';
+import { getTheme } from '@/styles/theme';
 import { ThemeProvider } from 'styled-components';
 
 // 1. 초기 테마 값 및 로컬 스토리지 저장 키 설정
@@ -57,7 +58,7 @@ export const BookStoreThemeProvider = ({
       {/* 구형 Styled-Components 지원용 Provider 유지 (마이그레이션 중간 단계 안전장치) */}
       <ThemeProvider theme={styledTheme}>
         {/* Vanilla Extract 적용을 위해 가장 최상단 div에 테마 클래스명(해시) 부여 */}
-        <div className={currentTheme}>{children}</div>
+        <div className={`${currentTheme} ${appWrapper}`}>{children}</div>
       </ThemeProvider>
     </ThemeContext.Provider>
   );

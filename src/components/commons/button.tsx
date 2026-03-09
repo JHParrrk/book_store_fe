@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonScheme, ButtonSize } from '@/styles/theme.css';
+import { ButtonScheme, ButtonSize } from '@/styles/theme';
 import * as styles from '@/components/commons/button.css';
 
 // 기존 HTML 버튼의 속성들을 상속받아 커스텀 버튼 컴포넌트의 Props를 정의합니다.

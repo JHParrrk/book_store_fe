@@ -12,5 +12,5 @@ export const emptyContainer = style({
 
 export const emptyIcon = style({
   fontSize: '4rem',
-  fill: '#ccc',
+  fill: vars.color.secondary,
 });

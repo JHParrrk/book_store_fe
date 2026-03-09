@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { FaPlus } from "react-icons/fa";
-import styled from "styled-components";
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { FaPlus } from 'react-icons/fa';
+import styled from 'styled-components';
 
 interface Props {
   children: React.ReactNode;
@@ -22,24 +22,24 @@ const Modal = ({ children, isOpen, onClose }: Props) => {
     }
   };
   const handleKeydown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
+    if (e.key === 'Escape') {
       handleClose();
     }
   };
   const handleAnimationEnd = () => {
     if (isFadingOut) {
-      console.log("ah");
+      console.log('ah');
       onClose();
     }
   };
 
   useEffect(() => {
     if (isOpen) {
-      window.addEventListener("keydown", handleKeydown);
+      window.addEventListener('keydown', handleKeydown);
     }
 
     return () => {
-      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener('keydown', handleKeydown);
       setIsFadingOut(false);
     };
   }, [isOpen]);
@@ -48,7 +48,7 @@ const Modal = ({ children, isOpen, onClose }: Props) => {
 
   return createPortal(
     <ModalStyle
-      className={isFadingOut ? "fade-out" : "fade-in"}
+      className={isFadingOut ? 'fade-out' : 'fade-in'}
       onClick={handleOverlayClick}
       onAnimationEnd={handleAnimationEnd}
     >
@@ -59,7 +59,7 @@ const Modal = ({ children, isOpen, onClose }: Props) => {
         </button>
       </div>
     </ModalStyle>,
-    document.body
+    document.body,
   );
 };
 
@@ -104,7 +104,7 @@ const ModalStyle = styled.div`
     border-radius: ${({ theme }) => theme.borderRadius.default};
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.color.background_light};
     max-width: 80%;
   }
 

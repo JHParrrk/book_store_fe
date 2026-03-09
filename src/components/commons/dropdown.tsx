@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 
 interface Props {
   children: React.ReactNode;
@@ -21,10 +21,10 @@ const Dropdown = ({ children, toggleButton, isOpen = false }: Props) => {
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [dropdownRef]);
 
@@ -64,7 +64,7 @@ const DropdownStyle = styled.div<DropdownStyleProps>`
     top: 40px;
     right: 0;
     padding: 16px;
-    background: #fff;
+    background: ${({ theme }) => theme.color.background_light};
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: ${({ theme }) => theme.borderRadius.default};
     z-index: 100;

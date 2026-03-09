@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { useCategory } from "@/features/books/hooks/useCategory";
-import Button from "@/components/commons/Button";
-import { useSearchParams } from "react-router-dom";
-import { QUERYSTRING } from "@/constants/queryString";
+import React from 'react';
+import styled from 'styled-components';
+import { useCategory } from '@/features/books/hooks/useCategory';
+import Button from '@/components/commons/Button';
+import { useSearchParams } from 'react-router-dom';
+import { QUERYSTRING } from '@/constants/queryString';
 
 const BooksFilter = () => {
   const { category } = useCategory();
@@ -37,7 +37,7 @@ const BooksFilter = () => {
     }
 
     if (!searchParams.get(QUERYSTRING.ISNEW)) {
-      newSearchParams.set(QUERYSTRING.ISNEW, "true");
+      newSearchParams.set(QUERYSTRING.ISNEW, 'true');
     }
 
     const view = searchParams.get(QUERYSTRING.VIEW);
@@ -56,7 +56,7 @@ const BooksFilter = () => {
       <div className="category">
         {mainCategories.map((item) => {
           const subCategories = category.filter(
-            (sub) => sub.parent_id === item.id
+            (sub) => sub.parent_id === item.id,
           );
 
           return (
@@ -66,8 +66,8 @@ const BooksFilter = () => {
                 scheme={
                   currentCategoryId ===
                   (item.id === null ? null : item.id?.toString())
-                    ? "primary"
-                    : "normal"
+                    ? 'primary'
+                    : 'normal'
                 }
                 onClick={() => handleCategory(item.id)}
               >
@@ -82,8 +82,8 @@ const BooksFilter = () => {
                         size="medium"
                         scheme={
                           currentCategoryId === sub.id?.toString()
-                            ? "primary"
-                            : "normal"
+                            ? 'primary'
+                            : 'normal'
                         }
                         onClick={() => handleCategory(sub.id)}
                       >
@@ -97,11 +97,11 @@ const BooksFilter = () => {
                             size="small"
                             scheme={
                               currentCategoryId === sub3.id?.toString()
-                                ? "primary"
-                                : "normal"
+                                ? 'primary'
+                                : 'normal'
                             }
                             onClick={() => handleCategory(sub3.id)}
-                            style={{ marginLeft: "10px" }}
+                            style={{ marginLeft: '10px' }}
                           >
                             {sub3.name}
                           </Button>
@@ -117,7 +117,7 @@ const BooksFilter = () => {
       <div className="new">
         <Button
           size="medium"
-          scheme={searchParams.get(QUERYSTRING.ISNEW) ? "primary" : "normal"}
+          scheme={searchParams.get(QUERYSTRING.ISNEW) ? 'primary' : 'normal'}
           onClick={handleNews}
         >
           신간
@@ -144,7 +144,7 @@ const BooksFilterStyle = styled.div`
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #fff;
+        background-color: ${({ theme }) => theme.color.background_light};
         border: 1px solid ${({ theme }) => theme.color.border};
         border-radius: 4px;
         padding: 10px;

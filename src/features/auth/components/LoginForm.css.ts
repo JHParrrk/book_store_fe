@@ -37,6 +37,8 @@ export const input = style({
   border: `1px solid ${vars.color.border}`,
   borderRadius: vars.borderRadius.default,
   fontSize: '14px',
+  backgroundColor: vars.color.background_light,
+  color: vars.color.text,
   ':focus': {
     borderColor: vars.color.primary,
     outline: 'none',
