@@ -62,7 +62,7 @@
   <img src="https://vitejs.dev/logo.svg" width="50" alt="Vite" />
   <img src="https://reactjs.org/logo-og.png" width="50" alt="React" />
   <img src="https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg" width="50" alt="TypeScript" />
-  <img src="https://static.tanstack.com/images/react-query/logo.svg" width="50" alt="Tanstack Query" />
+  <img src="https://react-query-v3.tanstack.com/_next/static/media/logo.1c2b8b99.svg" width="50" alt="Tanstack Query" />
   <img src="https://zustand-demo.pmnd.rs/favicon.ico" width="50" alt="Zustand" />
 </p>
 
@@ -137,3 +137,4 @@ $ npm run build
 ## 📄 라이선스 (License)
 
 본 프로젝트는 MIT License를 따릅니다.
+````
