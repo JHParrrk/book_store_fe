@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://vitejs.dev/logo.svg" width="100" alt="Vite Logo" />
   <img src="https://reactjs.org/logo-og.png" width="100" alt="React Logo" />
-  <img src="https://www.typescriptlang.org/assets/images/icons/favicon-32x32.png" width="100" alt="TypeScript Logo" />
+  <img src="https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg" width="100" alt="TypeScript Logo" />
 </p>
 
 ---
@@ -61,8 +61,8 @@
 <p align="center">
   <img src="https://vitejs.dev/logo.svg" width="50" alt="Vite" />
   <img src="https://reactjs.org/logo-og.png" width="50" alt="React" />
-  <img src="https://www.typescriptlang.org/assets/images/icons/favicon-32x32.png" width="50" alt="TypeScript" />
-  <img src="https://tanstack.com/img/logo.svg" width="50" alt="Tanstack Query" />
+  <img src="https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg" width="50" alt="TypeScript" />
+  <img src="https://static.tanstack.com/images/react-query/logo.svg" width="50" alt="Tanstack Query" />
   <img src="https://zustand-demo.pmnd.rs/favicon.ico" width="50" alt="Zustand" />
 </p>
 
