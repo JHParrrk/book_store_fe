@@ -83,6 +83,9 @@ const Header = ({ onMenuClick }: HeaderProps) => {
               <li>
                 <button onClick={storeLogout}>로그아웃</button>
               </li>
+              <li className="theme-switcher">
+                <ThemeSwitcher />
+              </li>
             </ul>
           ) : (
             <ul>
@@ -98,9 +101,11 @@ const Header = ({ onMenuClick }: HeaderProps) => {
                   회원가입
                 </Link>
               </li>
+              <li className="theme-switcher">
+                <ThemeSwitcher />
+              </li>
             </ul>
           )}
-          <ThemeSwitcher />
         </Dropdown>
       </nav>
     </HeaderStyle>
@@ -188,7 +193,7 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
       display: flex;
       flex-direction: column;
       gap: 16px;
-      width: 100px;
+      width: max-content;
       li {
         a,
         button {
@@ -197,13 +202,14 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
           text-decoration: none;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           width: 100%;
           line-height: 1;
           background: none;
           border: 0;
           cursor: pointer;
           color: ${({ theme }) => theme.color.text};
+          white-space: nowrap;
           svg {
             margin-right: 6px;
           }
@@ -211,6 +217,13 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
             color: ${({ theme }) => theme.color.primary};
           }
         }
+      }
+      .theme-switcher {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-top: 1px solid ${({ theme }) => theme.color.border};
+        padding-top: 16px;
       }
     }
   }

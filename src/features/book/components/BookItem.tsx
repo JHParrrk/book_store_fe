@@ -35,36 +35,57 @@ const BookItem = ({ book, view }: Props) => {
 };
 
 export const BookItemStyle = styled.div<Pick<Props, "view">>`
+  height: 100%;
   a {
     display: flex;
     flex-direction: ${({ view }) => (view === "grid" ? "column" : "row")};
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     text-decoration: none;
+    height: 100%;
+    background-color: ${({ theme }) => theme.color.background};
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+    overflow: hidden;
   }
 
   .img {
-    border-radius: ${({ theme }) => theme.borderRadius.default};
     overflow: hidden;
     width: ${({ view }) => (view === "grid" ? "auto" : "160px")};
+    flex-shrink: 0;
     img {
       max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 
   .content {
     padding: 16px;
+    padding-bottom: 56px; /* leaves room for absolute likes */
     position: relative;
-    flex: ${({ view }) => (view === "grid" ? 0 : 1)};
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 
     .title {
       font-size: 1.25rem;
       font-weight: 700;
       margin: 0 0 12px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .summary {
       font-size: 0.875rem;
       color: ${({ theme }) => theme.color.secondary};
       margin: 0 0 4px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .author {
       font-size: 0.875rem;
@@ -76,6 +97,7 @@ export const BookItemStyle = styled.div<Pick<Props, "view">>`
       font-weight: 700;
       color: ${({ theme }) => theme.color.secondary};
       margin: 0 0 4px 0;
+      margin-top: auto; /* Pushes the price and below to the bottom */
     }
     .likes {
       display: inline-flex;
