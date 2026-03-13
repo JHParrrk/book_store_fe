@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-const BASE_URL = 'http://localhost:6001'; // TODO: Move to .env
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:4001'; // Replace hardcoded BASE_URL
 const DEFAULT_TIMEOUT = 30000;
 
 export const createClient = (config?: AxiosRequestConfig): AxiosInstance => {

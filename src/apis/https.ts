@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { getToken, removeToken, setToken } from '@/stores/authStore';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:4001'; // Replace hardcoded BASE_URL
 const DEFAULT_TIMEOUT = 30000;
 
 // 여러 401 요청 동기화 변수
