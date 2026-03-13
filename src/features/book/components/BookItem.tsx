@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { Book } from "@/features/book/types/book.model";
+import React from 'react';
+import styled from 'styled-components';
+import { Book } from '@/features/book/types/book.model';
 // import { getImgSrc } from "@/utils/image";
-import { formatNumber } from "@/utils/format";
-import { FaHeart } from "react-icons/fa";
+import { formatNumber } from '@/utils/format';
+import { FaHeart } from 'react-icons/fa';
 import { ViewMode } from '@/features/book/components/BooksViewSwitcher';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface Props {
   book: Book;
@@ -34,11 +34,11 @@ const BookItem = ({ book, view }: Props) => {
   );
 };
 
-export const BookItemStyle = styled.div<Pick<Props, "view">>`
+export const BookItemStyle = styled.div<Pick<Props, 'view'>>`
   height: 100%;
   a {
     display: flex;
-    flex-direction: ${({ view }) => (view === "grid" ? "column" : "row")};
+    flex-direction: ${({ view }) => (view === 'grid' ? 'column' : 'row')};
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     height: 100%;
@@ -49,7 +49,7 @@ export const BookItemStyle = styled.div<Pick<Props, "view">>`
 
   .img {
     overflow: hidden;
-    width: ${({ view }) => (view === "grid" ? "auto" : "160px")};
+    width: ${({ view }) => (view === 'grid' ? 'auto' : '160px')};
     flex-shrink: 0;
     img {
       max-width: 100%;

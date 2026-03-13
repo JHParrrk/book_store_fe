@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <FooterStyle>
       <h1 className="logo">
-        <img src={logo} alt="book store" />
+        BookMarket
       </h1>
       <div className="copyright">
         <p>copyright(c), 2025, book store.</p>
@@ -25,9 +25,9 @@ const FooterStyle = styled.footer`
   justify-content: space-between;
 
   .logo {
-    img {
-      width: 140px;
-    }
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.color.text};
   }
 
   .copyright {

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import logo from '@/assets/images/logo.png';
 import {
   FaAngleRight,
@@ -8,17 +8,17 @@ import {
   FaShoppingBasket,
   FaSignInAlt,
   FaUserCircle,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
+} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Dropdown from '@/components/commons/dropdown';
 import ThemeSwitcher from '@/components/header/themeSwitcher';
 import { useAuthStore } from '@/stores/authStore';
 
 const Event = [
-  { id: null, name: "베스트" },
-  { id: 0, name: "신상품" },
-  { id: 1, name: "이벤트" },
-  { id: 2, name: "이런용도" },
+  { id: null, name: '베스트' },
+  { id: 0, name: '신상품' },
+  { id: 1, name: '이벤트' },
+  { id: 2, name: '이런용도' },
 ];
 
 interface HeaderProps {
@@ -40,7 +40,7 @@ const Header = ({ onMenuClick }: HeaderProps) => {
       {/* 🎯 [중앙] 로고 */}
       <h1 className="logo">
         <Link to="/">
-          <img src={logo} alt="book store" />
+          BookMarket
         </Link>
       </h1>
 
@@ -161,8 +161,11 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
   }
 
   .logo {
-    img {
-      width: 200px;
+    a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: ${({ theme }) => theme.color.primary};
     }
   }
 
@@ -290,7 +293,7 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
       ul {
         position: fixed;
         top: 0;
-        right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
+        right: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
         width: 70%;
         height: 100vh;
         background: ${({ theme }) => theme.color.background};
