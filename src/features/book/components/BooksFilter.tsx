@@ -144,11 +144,20 @@ const BooksFilterStyle = styled.div`
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: ${({ theme }) => theme.color.background_light};
-        border: 1px solid ${({ theme }) => theme.color.border};
-        border-radius: 4px;
-        padding: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: ${({ theme }) =>
+          theme.color.background}; /* Adjusted for dark mode */
+        color: ${({ theme }) => theme.color.text}; /* Ensure text is visible */
+        border: 1px solid ${({ theme }) => theme.color.text}; /* Add border for better visibility */
+
+        button {
+          color: ${({ theme }) =>
+            theme.color.text}; /* Ensure button text is visible */
+          &:hover {
+            color: ${({ theme }) =>
+              theme.color.primary}; /* Highlight on hover */
+          }
+        }
+
         z-index: 100;
         min-width: 200px;
         flex-direction: column;

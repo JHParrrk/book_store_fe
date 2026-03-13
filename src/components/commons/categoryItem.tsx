@@ -1,10 +1,10 @@
 // CategoryItem.tsx
 
-import React from "react";
-import styled from "styled-components"; // DefaultTheme 제거
-import { Link } from "react-router-dom";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-import { Category } from "@/features/book/types/category.model";
+import React from 'react';
+import styled from 'styled-components'; // DefaultTheme 제거
+import { Link } from 'react-router-dom';
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { Category } from '@/features/book/types/category.model';
 import { LIMIT, PAGE_START } from '@/constants/pagination';
 
 interface CategoryItemProps {
@@ -79,42 +79,53 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 
 // 스타일드 컴포넌트 (SidebarStyle에서 필요한 스타일만 가져옵니다)
 const CategoryItemStyle = styled.li<{ depth: number }>`
-  margin-bottom: 8px; /* li 간격 조정 */
-
   .category-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: ${({ theme }) => theme.borderRadius.default || '8px'};
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.color.background_light || 'rgba(0, 0, 0, 0.05)'};
+      
+      a, button {
+        color: ${({ theme }) => theme.color.primary};
+      }
+    }
 
     /* Level에 따른 글꼴 크기 조정 */
     a {
       text-decoration: none;
-      color: ${({ theme, depth }) =>
-        depth === 1 ? theme.color.text : theme.color.secondary};
-      font-size: ${({ depth }) => (depth === 1 ? "1rem" : "0.95rem")};
-      font-weight: ${({ depth }) => (depth === 1 ? 500 : 400)};
+      color: ${({ theme }) => theme.color.text};
+      font-size: ${({ depth }) => (depth === 1 ? '1.1rem' : '1rem')};
+      font-weight: ${({ depth }) => (depth === 1 ? 600 : 500)};
+      flex-grow: 1; /* 링크 영역 확장하여 터치 점유율 높임 */
+      transition: color 0.2s ease;
     }
 
     button {
       background: none;
-      border: none;
+      border: 0;
       cursor: pointer;
       color: ${({ theme }) => theme.color.text};
-      padding: 0 5px;
       display: flex;
       align-items: center;
-
+      padding: 4px;
+      transition: color 0.2s ease;
+      
       svg {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
   }
 
   .sub-category {
     list-style: none;
-    padding-left: 15px;
-    margin: 0;
+    margin: 0 0 8px 0;
+    padding-left: 14px; /* 기존 인라인을 대체하기 위한 기본 여백 */
 
     /* 💡 Level 3 (depth >= 3) 이상부터 수평 레이아웃 적용 */
     ${({ depth }) =>

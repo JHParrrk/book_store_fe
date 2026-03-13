@@ -35,7 +35,12 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
     <>
       <SidebarStyle isOpen={isOpen}>
-        <h3>카테고리</h3>
+        <div className="sidebar-header">
+          <h3>카테고리</h3>
+          <button className="close-btn" onClick={onClose}>
+            &times;
+          </button>
+        </div>
         <ul>
           <AllLinkItemStyle>
             <Link to="/books/search" onClick={onClose}>
@@ -76,9 +81,32 @@ const SidebarStyle = styled.div<{ isOpen: boolean }>`
   transition: transform 0.3s ease;
 
   h3 {
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+    margin: 0;
+    font-size: 1.4rem;
     font-weight: bold;
+    color: ${({ theme }) => theme.color.text};
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid ${({ theme }) => theme.color.border};
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: ${({ theme }) => theme.color.text};
+      transition: color 0.2s;
+
+      &:hover {
+        color: ${({ theme }) => theme.color.primary};
+      }
+    }
   }
 
   ul {
@@ -94,11 +122,17 @@ const AllLinkItemStyle = styled.li`
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.color.text};
-    font-size: 1rem;
-    font-weight: 500;
-
+    font-size: 1.1rem;
+    font-weight: 600;
     display: block;
-    padding: 5px 0;
+    padding: 8px 12px;
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.color.background_light || 'rgba(0,0,0,0.05)'};
+      color: ${({ theme }) => theme.color.primary};
+    }
   }
 `;
 

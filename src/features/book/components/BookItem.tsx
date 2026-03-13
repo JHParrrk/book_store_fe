@@ -80,7 +80,7 @@ export const BookItemStyle = styled.div<Pick<Props, 'view'>>`
     }
     .summary {
       font-size: 0.875rem;
-      color: ${({ theme }) => theme.color.secondary};
+      color: ${({ theme }) => theme.color.text}; /* Adjusted for dark mode */
       margin: 0 0 4px 0;
       display: -webkit-box;
       -webkit-line-clamp: 2;
