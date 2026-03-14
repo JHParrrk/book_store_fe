@@ -7,6 +7,7 @@ interface FetchBooksParams {
   isNew?: boolean;
   currentPage?: number;
   limit: number;
+  keyword?: string;
 }
 
 export interface FetchBooksResponse {
@@ -16,13 +17,14 @@ export interface FetchBooksResponse {
 
 export const fetchBooks = async (params: FetchBooksParams) => {
   try {
-    // `page`를 `currentPage`로 변환
-    const { currentPage, isNew, category_Id, limit } = params;
+    // `page`�?`currentPage`�?변??
+    const { currentPage, isNew, category_Id, limit, keyword } = params;
     const queryParams = {
       category_id: category_Id,
       isNew,
       page: currentPage,
       limit,
+      keyword,
     };
 
     const response = await httpClient.get<FetchBooksResponse>('/books/search', {
@@ -48,7 +50,7 @@ export const fetchBook = async (bookId: string) => {
   return response.data;
 };
 
-// 서버가 토글 로직을 처리하는 경우(요청만 보내면 해당 유저의 좋아요 상태를 토글함)
+// ?�버가 ?��? 로직??처리?�는 경우(?�청�?보내�??�당 ?��???좋아???�태�??��???
 export const toggleLikeBook = async (bookId: number) => {
   return await httpClient.post<{ isLiked: boolean }>(`/books/${bookId}/like`);
 };
@@ -58,3 +60,4 @@ export const fetchBestBooks = async () => {
 
   return response.data.books;
 };
+

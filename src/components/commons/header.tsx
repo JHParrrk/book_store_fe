@@ -14,11 +14,11 @@ import Dropdown from '@/components/commons/dropdown';
 import ThemeSwitcher from '@/components/header/themeSwitcher';
 import { useAuthStore } from '@/stores/authStore';
 
-const Event = [
-  { id: null, name: '베스트' },
-  { id: 0, name: '신상품' },
-  { id: 1, name: '이벤트' },
-  { id: 2, name: '이런용도' },
+const EventItems = [
+  { id: 'best', name: '베스트' },
+  { id: 'ebook', name: 'eBook' },
+  { id: 'event', name: '이벤트' },
+  { id: 'mypage', name: '마이페이지' },
 ];
 
 interface HeaderProps {
@@ -26,9 +26,16 @@ interface HeaderProps {
 }
 
 const Header = ({ onMenuClick }: HeaderProps) => {
-  const event = Event;
   const { isloggedIn, storeLogout } = useAuthStore();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  // 이벤트 & 이북 클릭 시 알림과 함께 이동하지 않도록 처리
+  const handleFutureFeatureClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+    alert('추후 업데이트 예정입니다.');
+  };
 
   return (
     <HeaderStyle $isOpen={isMobileOpen}>
@@ -51,16 +58,31 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           {isMobileOpen ? <FaAngleRight /> : <FaBars />}
         </button>
         <ul>
-          {event.map((item) => (
-            <li key={item.id}>
-              <Link
-                to={item.id === null ? `/event` : `/event?event_id=${item.id}`}
-                onClick={() => setIsMobileOpen(false)}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+          {EventItems.map((item) => {
+            let toPath = '/';
+            let onClickHandler: (e: any) => void = () => setIsMobileOpen(false);
+
+            if (item.id === 'best') {
+              // 베스트는 도서 목록 페이지에서 sort 쿼리나 상태를 통해 처리하거나 /books/search?best=true 등으로 보낼 수 있음
+              // 현재 백엔드의 전체 리뷰 조회 등을 구현할 때 활용 가능. 도서목록 (/books/search)에 임시로 이동시키거나 필요 시 베스트 파라미터 추가
+              toPath = '/books/search?best=true';
+            } else if (item.id === 'mypage') {
+              toPath = '/mypage';
+            } else {
+              onClickHandler = (e: any) => {
+                setIsMobileOpen(false);
+                handleFutureFeatureClick(e);
+              };
+            }
+
+            return (
+              <li key={item.id}>
+                <Link to={toPath} onClick={onClickHandler}>
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
 

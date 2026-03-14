@@ -1,8 +1,8 @@
-import { BookReviewItemWrite } from "@/features/book/types/book.model";
-import React from "react";
-import { useForm } from "react-hook-form";
-import styled from "styled-components";
-import Button from "@/components/commons/Button";
+import { BookReviewItemWrite } from '@/features/book/types/book.model';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import Button from '@/components/commons/Button';
 
 interface Props {
   onAdd: (data: BookReviewItemWrite) => void;
@@ -28,7 +28,13 @@ const BookReviewAdd = ({ onAdd }: Props) => {
     <BookReviewAddStyle>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <fieldset>
-          <textarea {...register("content", { required: true })}></textarea>
+          <textarea
+            {...register('content', { required: true })}
+            onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+              e.target.style.height = 'auto';
+              e.target.style.height = e.target.scrollHeight + 'px';
+            }}
+          ></textarea>
           {errors.content && (
             <p className="error-text">리뷰 내용을 입력해주세요</p>
           )}
@@ -41,7 +47,7 @@ const BookReviewAdd = ({ onAdd }: Props) => {
             <select
               id="rating"
               className="rating-select"
-              {...register("rating", { required: true })}
+              {...register('rating', { required: true })}
             >
               <option value="1">1점</option>
               <option value="2">2점</option>
@@ -83,16 +89,39 @@ const BookReviewAddStyle = styled.div`
 
     textarea {
       width: 100%;
-      height: 100px;
+      height: auto;
+      min-height: 60px;
+      overflow: hidden;
       border-radius: ${({ theme }) => theme.borderRadius.default};
       border: 1px solid ${({ theme }) => theme.color.border};
       padding: 12px;
+      color: ${({ theme }) => theme.color.text};
+      background-color: ${({ theme }) =>
+        theme.name === 'dark' ? '#222' : '#fff'};
     }
   }
 
   .submit {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+
+    fieldset {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+
+      select {
+        padding: 8px 12px;
+        border-radius: ${({ theme }) => theme.borderRadius.default};
+        border: 1px solid ${({ theme }) => theme.color.border};
+        outline: none;
+        color: ${({ theme }) => theme.color.text};
+        background-color: ${({ theme }) =>
+          theme.name === 'dark' ? '#222' : '#fff'};
+      }
+    }
   }
 `;
 

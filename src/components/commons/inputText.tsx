@@ -1,17 +1,17 @@
-import React from "react";
-import { ForwardedRef } from "react";
-import styled from "styled-components";
+import React from 'react';
+import { ForwardedRef } from 'react';
+import styled from 'styled-components';
 
 // forward ref 방식
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
-  inputType?: "text" | "email" | "password" | "number";
+  inputType?: 'text' | 'email' | 'password' | 'number';
 }
 
 const InputText = React.forwardRef(
   (
     { placeholder, inputType, onChange, ...props }: Props,
-    ref: ForwardedRef<HTMLInputElement>
+    ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
       <InputTextStyle
@@ -22,7 +22,7 @@ const InputText = React.forwardRef(
         {...props}
       />
     );
-  }
+  },
 );
 
 const InputTextStyle = styled.input`
@@ -32,6 +32,7 @@ const InputTextStyle = styled.input`
   font-size: 1rem;
   line-height: 1.5;
   color: ${({ theme }) => theme.color.text};
+  background-color: ${({ theme }) => (theme.name === 'dark' ? '#111' : '#fff')};
 `;
 
 export default InputText;

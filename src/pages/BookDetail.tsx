@@ -1,69 +1,70 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Title from "@/components/commons/Title";
-import { useParams } from "react-router-dom";
-import { useBook } from "@/features/book/hooks/useBook";
-import { BookDetail as IBookDetail } from "@/features/book/types/book.model";
-import { formatDate, formatNumber } from "@/utils/format";
-import { Link } from "react-router-dom";
-import EllipsisBox from "@/components/commons/EllipsisBox";
-import LikeButton from "@/features/book/components/LikeButton";
-import AddToBasket from "@/features/book/components/AddToBasket";
-import BookReview from "@/features/book/components/BookReview";
-import { Tab, Tabs } from "@/components/commons/Tabs";
-import Modal from "@/components/commons/Modal";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Title from '@/components/commons/Title';
+import { useParams } from 'react-router-dom';
+import { useBook } from '@/features/book/hooks/useBook';
+import { BookDetail as IBookDetail } from '@/features/book/types/book.model';
+import { formatDate, formatNumber } from '@/utils/format';
+import { Link } from 'react-router-dom';
+import EllipsisBox from '@/components/commons/EllipsisBox';
+import LikeButton from '@/features/book/components/LikeButton';
+import AddToBasket from '@/features/book/components/AddToBasket';
+import BookReview from '@/features/book/components/BookReview';
+import { Tab, Tabs } from '@/components/commons/Tabs';
+import Modal from '@/components/commons/Modal';
 
 const bookInfoList = [
   {
-    label: "카테고리",
-    key: "category_name",
+    label: '카테고리',
+    key: 'category_name',
     filter: (book: IBookDetail) => {
       return (
-        <Link to={`/books?category_Id=${book.category_id}`}>
+        <Link to={`/books/search?category_Id=${book.category_id}`}>
           {book.category_name}
         </Link>
       );
     },
   },
   {
-    label: "포맷",
-    key: "form",
+    label: '포맷',
+    key: 'form',
   },
   {
-    label: "ISBN",
-    key: "isbn",
+    label: 'ISBN',
+    key: 'isbn',
   },
   {
-    label: "출간일",
-    key: "published_date",
+    label: '출간일',
+    key: 'published_date',
     filter: (book: IBookDetail) => {
       return formatDate(book.published_date);
     },
   },
   {
-    label: "가격",
-    key: "price",
+    label: '가격',
+    key: 'price',
     filter: (book: IBookDetail) => {
       return `${formatNumber(book.price)}원`;
     },
   },
   {
-    label: "이쁘게 보기",
-    key: "asdf",
+    label: '이쁘게 보기',
+    key: 'asdf',
   },
   {
-    label: "용 나중에 ",
-    key: "qwer",
+    label: '용 나중에 ',
+    key: 'qwer',
   },
   {
-    label: "스타일로",
-    key: "zxcv",
+    label: '스타일로',
+    key: 'zxcv',
   },
 ];
 
 const BookDetail = () => {
   const { bookId } = useParams();
-  const { book, likeToggle, reviews, addReview } = useBook(bookId);
+  const { book, likeToggle, reviews, addReview, updateReview, deleteReview } =
+    useBook(bookId);
   const [isImgOpen, setIsImgOpen] = useState(false);
 
   if (!book) return null;
@@ -116,7 +117,12 @@ const BookDetail = () => {
           </Tab>
           <Tab title="리뷰">
             <Title size="medium">리뷰</Title>
-            <BookReview reviews={reviews} onAdd={addReview} />
+            <BookReview
+              reviews={reviews}
+              onAdd={addReview}
+              onUpdate={updateReview}
+              onDelete={deleteReview}
+            />
           </Tab>
         </Tabs>
       </div>

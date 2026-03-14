@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Book } from '@/features/book/types/book.model';
 // import { getImgSrc } from "@/utils/image";
@@ -13,11 +13,17 @@ interface Props {
 }
 
 const BookItem = ({ book, view }: Props) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <BookItemStyle view={view}>
       <Link to={`/books/${book.id}`}>
-        <div className="img">
-          <img src={book.image_url} alt={book.title} />
+        <div className={`img ${imgLoaded ? 'loaded' : 'loading'}`}>
+          <img
+            src={book.image_url}
+            alt={book.title}
+            onLoad={() => setImgLoaded(true)}
+          />
         </div>
         <div className="content">
           <h2 className="title">{book.title}</h2>
@@ -40,6 +46,9 @@ export const BookItemStyle = styled.div<Pick<Props, 'view'>>`
     display: flex;
     flex-direction: ${({ view }) => (view === 'grid' ? 'column' : 'row')};
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid
+      ${({ theme }) =>
+        theme.name === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
     text-decoration: none;
     height: 100%;
     background-color: ${({ theme }) => theme.color.background_light};
@@ -47,23 +56,63 @@ export const BookItemStyle = styled.div<Pick<Props, 'view'>>`
     overflow: hidden;
     transition:
       transform 0.2s ease,
+      border-color 0.2s ease,
       box-shadow 0.2s ease;
 
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-color: ${({ theme }) =>
+        theme.name === 'dark' ? 'rgba(255, 255, 255, 0.4)' : 'transparent'};
     }
   }
 
   .img {
+    position: relative;
     overflow: hidden;
     width: ${({ view }) => (view === 'grid' ? 'auto' : '160px')};
+    aspect-ratio: ${({ view }) => (view === 'grid' ? '3 / 4' : 'unset')};
+    min-height: ${({ view }) => (view === 'grid' ? 'auto' : '220px')};
+    background-color: ${({ theme }) => theme.color.border};
     flex-shrink: 0;
+
+    &.loading::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      animation: loading-skeleton 1.5s infinite;
+    }
+
     img {
       max-width: 100%;
       height: 100%;
+      width: 100%;
       object-fit: cover;
       display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    &.loading img {
+      opacity: 0;
+    }
+  }
+
+  @keyframes loading-skeleton {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 

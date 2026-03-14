@@ -1,12 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "@/components/commons/Title";
-import { useOrders } from "@/features/order/hooks/useOrders";
-import { formatDate, formatNumber } from "@/utils/format";
-import Button from "@/components/commons/Button";
+import React from 'react';
+import styled from 'styled-components';
+import Title from '@/components/commons/Title';
+import { useOrders } from '@/features/order/hooks/useOrders';
+import { formatDate, formatNumber } from '@/utils/format';
+import Button from '@/components/commons/Button';
+import { useNavigate } from 'react-router-dom';
 
 const OrderList = () => {
-  const { orders, selectedItemId, selectOrderItem } = useOrders();
+  const { orders } = useOrders();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -27,38 +29,19 @@ const OrderList = () => {
               <React.Fragment key={order.order_id}>
                 <tr>
                   <td>{order.order_id}</td>
-                  <td>{formatDate(order.created_at, "YYYY.MM.DD")}</td>
+                  <td>{formatDate(order.created_at, 'YYYY.MM.DD')}</td>
                   <td>{formatNumber(order.total_price)}원</td>
                   <td>{order.status}</td>
                   <td>
                     <Button
                       size="small"
                       scheme="normal"
-                      onClick={() => selectOrderItem(order.order_id)}
+                      onClick={() => navigate(`/orderlist/${order.order_id}`)}
                     >
                       자세히
                     </Button>
                   </td>
                 </tr>
-                {selectedItemId === order.order_id && (
-                  <tr>
-                    <td></td>
-                    <td colSpan={5}>
-                      <ul className="detail">
-                        {order.detail &&
-                          order.detail.books.map((item) => (
-                            <li key={item.book_id}>
-                              <div>
-                                <span>{item.title}</span>
-                                <span>{item.quantity}권</span>
-                                <span>{formatNumber(item.price)}원</span>
-                              </div>
-                            </li>
-                          ))}
-                      </ul>
-                    </td>
-                  </tr>
-                )}
               </React.Fragment>
             ))}
           </tbody>

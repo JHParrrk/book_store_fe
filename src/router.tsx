@@ -7,6 +7,9 @@ import Books from '@/pages/books';
 import Login from '@/pages/login';
 import Order from '@/pages/Order';
 import OrderList from '@/pages/OrderList';
+import OrderDetail from '@/pages/OrderDetail';
+import PaymentComplete from '@/pages/PaymentComplete';
+import MyPage from '@/pages/MyPage';
 // import ResetPassword from "@/pages/ResetPassword";
 import Signup from '@/pages/signup';
 import Error from '@/components/commons/error';
@@ -37,6 +40,10 @@ const routeList = [
     element: <Login />,
   },
   {
+    path: '/mypage', // 마이페이지 라우트
+    element: <MyPage />,
+  },
+  {
     path: '/books/:bookId', // 구조 분해 할당 파라미터(:bookId)를 받는 책 상제 페이지 라우트
     element: <BookDetail />,
   },
@@ -47,6 +54,14 @@ const routeList = [
   {
     path: '/order', // 주문 페이지 라우트
     element: <Order />,
+  },
+  {
+    path: '/orderlist/:orderId',
+    element: <OrderDetail />,
+  },
+  {
+    path: '/orderlist/:orderId/complete',
+    element: <PaymentComplete />,
   },
   {
     path: '/orderlist', // 내 주문 내역 페이지 라우트

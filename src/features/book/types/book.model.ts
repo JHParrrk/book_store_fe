@@ -26,6 +26,9 @@ export interface BookReviewItem {
   rating: number; // 평점 (예: 1-5)
   created_at?: string; // 작성일 (ISO8601)
   updated_at?: string; // 수정일 (ISO8601)
+  author_name?: string; // 작성자 이름 (조인 결과)
+  book_title?: string; // 도서 제목 (마이페이지용)
+  book_id?: number; // 도서 ID (마이페이지용)
   // 선택적으로 사용자 정보를 포함할 수 있음 (프론트엔드에서 UI용)
   user?: {
     id: number;
@@ -33,4 +36,4 @@ export interface BookReviewItem {
   };
 }
 
-export type BookReviewItemWrite = Pick<BookReviewItem, "content" | "rating">;
+export type BookReviewItemWrite = Pick<BookReviewItem, 'content' | 'rating'>;

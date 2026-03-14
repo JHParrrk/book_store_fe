@@ -110,13 +110,29 @@ VITE_API_BASE_URL=http://localhost:3000
 ### 2. 설치 및 실행
 
 ```bash
-# 의존성 설치
+# 1. 저장소 클론
+$ git clone https://github.com/your-repo/book_store_fe.git
+$ cd book_store_fe
+
+# 2. 의존성 설치
 $ npm install
 
-# Vite 개발 서버 실행
+# 3. 환경 변수 설정
+# 프로젝트 루트에 .env 파일 생성 후 필요한 변수 추가
+$ echo "VITE_API_BASE_URL=http://localhost:3000" > .env
+
+# 4. Vite 개발 서버 실행
 $ npm run dev
 
-# 프로덕션 빌드 (결과물은 /dist에 생성)
+# 5. 메인 모드 실행
+# 메인 컴퓨터에서 백엔드 서버와 함께 프론트엔드를 실행할 때 사용
+$ npm run main
+
+# 6. 서브 모드 실행
+# 메인 컴퓨터에서 프론트엔드만 실행하고, 서브 컴퓨터의 백엔드 서버를 참조할 때 사용
+$ npm run sub
+
+# 7. 프로덕션 빌드 (결과물은 /dist에 생성)
 $ npm run build
 ```
 

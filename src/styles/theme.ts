@@ -71,7 +71,7 @@ export const dark: Theme = {
     ...light.color,
     primary: 'coral',
     background: 'midnightblue',
-    secondary: '#a3a3a3', /* 통상적인 다크모드 서브 텍스트용 회색 계열 */
+    secondary: '#a3a3a3' /* 통상적인 다크모드 서브 텍스트용 회색 계열 */,
     third: 'darkgreen',
     text: 'white',
     background_light: '#333',

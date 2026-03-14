@@ -54,6 +54,14 @@ const BooksFilter = () => {
   return (
     <BooksFilterStyle>
       <div className="category">
+        <Button
+          size="medium"
+          scheme={currentCategoryId === null ? 'primary' : 'normal'}
+          onClick={() => handleCategory(null)}
+        >
+          전체
+        </Button>
+
         {mainCategories.map((item) => {
           const subCategories = category.filter(
             (sub) => sub.parent_id === item.id,
@@ -152,7 +160,9 @@ const BooksFilterStyle = styled.div`
           font-size: 0.95rem;
           color: ${({ theme }) => theme.color.text};
           cursor: pointer;
-          transition: background-color 0.2s, color 0.2s;
+          transition:
+            background-color 0.2s,
+            color 0.2s;
 
           &:hover {
             background-color: ${({ theme }) => theme.color.background};
@@ -172,7 +182,7 @@ const BooksFilterStyle = styled.div`
             display: flex;
             align-items: center;
             gap: 4px;
-            
+
             &::before {
               content: '';
             }

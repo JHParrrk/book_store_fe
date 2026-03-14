@@ -1,0 +1,147 @@
+
+> book_store_fe@0.1.0 build
+> tsc && vite build
+
+src/pages/BookDetail.tsx(21,19): error TS1161: Unterminated regular expression literal.
+src/pages/BookDetail.tsx(168,27): error TS1005: ',' expected.
+src/pages/BookDetail.tsx(168,28): error TS1180: Property destructuring pattern expected.
+src/pages/BookDetail.tsx(168,74): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(170,7): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(170,8): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(170,9): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(171,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(171,37): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(172,19): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(172,23): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(172,25): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(172,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(172,25): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(172,30): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(172,30): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(174,5): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(175,3): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(177,3): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(177,4): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(180,19): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(181,16): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(183,5): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(184,17): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(185,20): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(185,24): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(186,16): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(186,21): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(187,18): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(188,18): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(189,21): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(189,29): error TS1124: Digit expected.
+src/pages/BookDetail.tsx(192,5): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(192,18): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(193,16): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(193,21): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(194,15): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(199,7): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(199,8): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(200,20): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(201,17): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(215,20): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(215,20): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(215,25): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(215,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(216,22): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(216,26): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(218,21): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(218,34): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(218,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(219,18): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(219,21): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(219,28): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(229,24): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(229,27): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(230,25): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(231,25): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(231,32): error TS1124: Digit expected.
+src/pages/BookDetail.tsx(232,22): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(235,9): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(236,20): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(236,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(237,19): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(243,28): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(245,13): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(245,14): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(245,15): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(246,30): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(251,5): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(253,5): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(253,6): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(254,16): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(254,22): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(255,15): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(262,17): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(265,5): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(265,6): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(267,18): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(268,14): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(269,17): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(271,7): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(271,8): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(272,17): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(272,19): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(273,9): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(274,25): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(275,24): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(275,26): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(275,26): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(279,7): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(279,17): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(281,9): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(281,15): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(283,24): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(285,9): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(286,24): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(287,23): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(288,22): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(288,27): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(289,24): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(290,26): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(290,30): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(291,23): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(291,27): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(291,28): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(291,28): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(291,28): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(291,33): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(291,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(292,25): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(292,38): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(292,38): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(292,52): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(292,55): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(292,55): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(293,13): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(293,14): error TS1109: Expression expected.
+src/pages/BookDetail.tsx(293,15): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(294,39): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(295,25): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(295,29): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(295,31): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(295,31): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(295,31): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(295,36): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(295,36): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(300,3): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(302,3): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(302,4): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(303,15): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(303,19): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(304,16): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(304,20): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(305,15): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(305,18): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(305,21): error TS1434: Unexpected keyword or identifier.
+src/pages/BookDetail.tsx(305,28): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(311,18): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(312,18): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/pages/BookDetail.tsx(313,23): error TS1005: ';' expected.
+src/pages/BookDetail.tsx(313,26): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/pages/BookDetail.tsx(318,3): error TS1128: Declaration or statement expected.
+src/pages/BookDetail.tsx(322,1): error TS1160: Unterminated template literal.

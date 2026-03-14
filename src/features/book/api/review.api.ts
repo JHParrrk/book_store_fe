@@ -1,4 +1,7 @@
-import { BookReviewItem, BookReviewItemWrite } from '@/features/book/types/book.model';
+import {
+  BookReviewItem,
+  BookReviewItemWrite,
+} from '@/features/book/types/book.model';
 import { Pagination } from '@/models/pagination.model';
 import { requestHandler } from '@/apis/https';
 
@@ -22,6 +25,25 @@ export const addBookReview = async (
     'post',
     `/books/${bookId}/reviews`,
     data,
+  );
+};
+
+export const updateBookReview = async (
+  bookId: string,
+  reviewId: string,
+  data: BookReviewItemWrite,
+) => {
+  return await requestHandler<{ message: string }>(
+    'put',
+    `/books/${bookId}/reviews/${reviewId}`,
+    data,
+  );
+};
+
+export const deleteBookReview = async (bookId: string, reviewId: string) => {
+  return await requestHandler<void>(
+    'delete',
+    `/books/${bookId}/reviews/${reviewId}`,
   );
 };
 
